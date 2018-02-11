@@ -1,0 +1,11 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Symfony Flex API
+            description: The documentation for this demo application
+            version: 1.0.0
+        basePath: /
+    areas:
+        default:
+            path_patterns: [ ^/api ]
+

@@ -1,0 +1,32 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_USER:        ROLE_API
+        ROLE_ADMIN:       [ROLE_USER]
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        api:
+            pattern: ^/api
+            fos_oauth: true
+            stateless: true
+            anonymous: true
+
+        doc:
+            pattern: /
+            anonymous: true
+
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+

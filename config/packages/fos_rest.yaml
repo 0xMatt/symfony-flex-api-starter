@@ -1,0 +1,34 @@
+fos_rest:
+    disable_csrf_role: ~
+    param_fetcher_listener: force
+    versioning: true
+    view:
+        view_response_listener: force
+        failed_validation: HTTP_BAD_REQUEST
+        formats:
+            json: true
+            xml:  true
+            html: false
+    routing_loader:
+        default_format: json
+    body_listener: true
+    format_listener:
+        enabled: true
+        rules:
+            - { path: '^/api*', priorities: ['json', 'xml'], fallback_format: 'json' }
+            - { path: ^/, priorities: [ html ], fallback_format: json }
+#    format_listener:
+#        enabled: true
+#        rules:
+#            - { path: ^/api*, priorities: [ json, xml ], fallback_format: json }
+#            - { path: ^/*, priorities: [ html ], fallback_format: html }
+    exception:
+        enabled: true
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+            'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+    allowed_methods_listener: true
+    access_denied_listener:
+        json: true
