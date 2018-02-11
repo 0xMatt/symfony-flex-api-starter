@@ -2,6 +2,10 @@
 
 This in an API starter kit built with Symfony flex and FOS bundles that help achieve a full fledged rest API with an OAuth 2.0 server.
 
+[![Build Status](https://travis-ci.org/0xMatt/symfony-flex-api-starter.svg?branch=master)](https://travis-ci.org/0xMatt/symfony-flex-api-starter)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/0xMatt/symfony-flex-api-starter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/0xMatt/symfony-flex-api-starter/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/0xMatt/symfony-flex-api-starter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/0xMatt/symfony-flex-api-starter/?branch=master)
+
 ## Getting Started
 
 Simply clone this repo, run `composer install`, modify your .env file and run `php bin/console server:run` to view the live development server!
